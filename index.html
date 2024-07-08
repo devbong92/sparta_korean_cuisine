@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한식 메뉴</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="module">
+    const menuItems = [
+        { name: '비빔밥', description: '밥 위에 나물, 고기, 고추장 등을 얹고 비벼 먹는 한국 요리' },
+        { name: '김치찌개', description: '김치와 돼지고기 등을 넣고 끓인 한국의 찌개 요리' },
+        { name: '불고기', description: '양념한 고기를 구워서 먹는 한국 요리' },
+        { name: '떡볶이', description: '떡과 어묵을 고추장 양념에 볶아 만든 한국의 간식' },
+        { name: '잡채', description: '당면과 여러 채소, 고기를 볶아 만든 한국 요리' }
+    ];
+
+    let keyword = "고기";
+    
+    menuItems.filter( e => e.description.indexOf(keyword) > 0)
+             .forEach((e)=>{
+        $("#menu-list").append(`
+        <li class="menu-item">
+            <div>
+                <h2>${e.name}</h2>
+                <p>${e.description}</p>
+            </div>
+        </li>
+        `);
+    });
+</script>
+<style>
+    body {
+        text-align: center;
+    }
+
+    .menu-list {
+        margin: 0;
+        padding: 0;
+    }
+
+    .menu-item {
+        display: block;
+        margin: 20px;
+        list-style: none;
+
+    }
+
+    .menu-item > div {
+        width: 300px;
+        margin: 20px auto 20px auto;
+        text-align: center;
+        border: 1px solid;
+        border-color: gray;
+    }
+    
+</style>
+
+<body>
+    <h1>한식 메뉴</h1>
+    <ul id="menu-list" class="menu-list">
+    </ul>
+</body>
+
+</html>
